@@ -1,0 +1,71 @@
+--- /usr/local/etc/httpd/httpd.conf	2017-10-19 14:34:32.000000000 +0300
++++ /usr/local/etc/httpd/httpd.conf	2017-10-19 15:23:29.000000000 +0300
+@@ -49,7 +49,7 @@
+ # prevent Apache from glomming onto all bound IP addresses.
+ #
+ #Listen 12.34.56.78:80
+-Listen 8080
++Listen 80
+ 
+ #
+ # Dynamic Shared Object (DSO) Support
+@@ -162,7 +162,7 @@
+ #LoadModule cgid_module lib/httpd/modules/mod_cgid.so
+ #LoadModule dav_fs_module lib/httpd/modules/mod_dav_fs.so
+ #LoadModule dav_lock_module lib/httpd/modules/mod_dav_lock.so
+-#LoadModule vhost_alias_module lib/httpd/modules/mod_vhost_alias.so
++LoadModule vhost_alias_module lib/httpd/modules/mod_vhost_alias.so
+ #LoadModule negotiation_module lib/httpd/modules/mod_negotiation.so
+ LoadModule dir_module lib/httpd/modules/mod_dir.so
+ #LoadModule actions_module lib/httpd/modules/mod_actions.so
+@@ -203,7 +203,7 @@
+ # e-mailed.  This address appears on some server-generated pages, such
+ # as error documents.  e.g. admin@your-domain.com
+ #
+-ServerAdmin you@example.com
++ServerAdmin ydenyshchenk@magento.com
+ 
+ #
+ # ServerName gives the name and port that the server uses to identify itself.
+@@ -212,7 +212,7 @@
+ #
+ # If your host doesn't have a registered DNS name, enter its IP address here.
+ #
+-#ServerName www.example.com:8080
++ServerName php.lo
+ 
+ #
+ # Deny access to the entirety of your server's filesystem. You must
+@@ -270,9 +270,13 @@
+ # is requested.
+ #
+ <IfModule dir_module>
+-    DirectoryIndex index.html
++    DirectoryIndex index.php index.html
+ </IfModule>
+ 
++<FilesMatch \.php$>
++    SetHandler application/x-httpd-php
++</FilesMatch>
++
+ #
+ # The following lines prevent .htaccess and .htpasswd files from being 
+ # viewed by Web clients. 
+@@ -295,7 +299,7 @@
+ # Possible values include: debug, info, notice, warn, error, crit,
+ # alert, emerg.
+ #
+-LogLevel warn
++LogLevel debug
+ 
+ <IfModule log_config_module>
+     #
+@@ -495,7 +499,7 @@
+ #Include /usr/local/etc/httpd/extra/httpd-info.conf
+ 
+ # Virtual hosts
+-#Include /usr/local/etc/httpd/extra/httpd-vhosts.conf
++Include /usr/local/etc/httpd/extra/httpd-vhosts.conf
+ 
+ # Local access to the Apache HTTP Server Manual
+ #Include /usr/local/etc/httpd/extra/httpd-manual.conf
