@@ -18,7 +18,7 @@ brew install httpd24 mysql@5.6 memcached redis php56 --with-thread-safety --with
 ```
 ### 1.3. PHP 7.0:
 ```sh
-brew install httpd24 mysql@5.6 memcached redis php70 --with-thread-safety --with-httpd php70-igbinary php70-intl php70-mcrypt php70-apcu php70-memcache php70-memcached php70-oauth php70-xdebug
+brew install httpd24 mysql@5.6 memcached redis php70 --with-thread-safety --with-httpd php70-xdebug
 ```
 ### 1.4. PHP 7.1:
 ```sh
@@ -47,7 +47,7 @@ git clone https://github.com/randix0/mac-apache-php.git .
 ## 4. Customize configs before deploying:
 
 ### 4.1. Set your path in the next files:
-- apache24/extra/httpd-vhosts.conf
+- httpd24/extra/httpd-vhosts.conf
 
 ## 5. Deploy configs and load daemons (PHP 5.6 is used for example):
 ```sh
