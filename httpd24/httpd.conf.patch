@@ -1,5 +1,5 @@
 --- /usr/local/etc/httpd/httpd.conf	2018-09-05 01:59:02.000000000 +0300
-+++ /usr/local/etc/httpd/httpd.conf	2018-09-05 02:06:04.000000000 +0300
++++ /usr/local/etc/httpd/httpd.conf	2018-09-05 02:23:23.000000000 +0300
 @@ -49,7 +49,7 @@
  # prevent Apache from glomming onto all bound IP addresses.
  #
@@ -9,7 +9,7 @@
 
  #
  # Dynamic Shared Object (DSO) Support
-@@ -171,14 +171,14 @@
+@@ -171,14 +171,15 @@
  </IfModule>
  #LoadModule dav_fs_module lib/httpd/modules/mod_dav_fs.so
  #LoadModule dav_lock_module lib/httpd/modules/mod_dav_lock.so
@@ -23,10 +23,11 @@
  LoadModule alias_module lib/httpd/modules/mod_alias.so
 -#LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
 +LoadModule rewrite_module lib/httpd/modules/mod_rewrite.so
++LoadModule php7_module /usr/local/opt/php@7.0/lib/httpd/modules/libphp7.so
 
  <IfModule unixd_module>
  #
-@@ -211,7 +211,7 @@
+@@ -211,7 +212,7 @@
  # e-mailed.  This address appears on some server-generated pages, such
  # as error documents.  e.g. admin@your-domain.com
  #
@@ -35,7 +36,7 @@
 
  #
  # ServerName gives the name and port that the server uses to identify itself.
-@@ -220,7 +220,7 @@
+@@ -220,7 +221,7 @@
  #
  # If your host doesn't have a registered DNS name, enter its IP address here.
  #
@@ -44,7 +45,7 @@
 
  #
  # Deny access to the entirety of your server's filesystem. You must
-@@ -278,9 +278,13 @@
+@@ -278,9 +279,13 @@
  # is requested.
  #
  <IfModule dir_module>
@@ -59,7 +60,7 @@
  #
  # The following lines prevent .htaccess and .htpasswd files from being
  # viewed by Web clients.
-@@ -303,7 +307,7 @@
+@@ -303,7 +308,7 @@
  # Possible values include: debug, info, notice, warn, error, crit,
  # alert, emerg.
  #
@@ -68,7 +69,7 @@
 
  <IfModule log_config_module>
      #
-@@ -503,7 +507,7 @@
+@@ -503,7 +508,7 @@
  #Include /usr/local/etc/httpd/extra/httpd-info.conf
 
  # Virtual hosts
