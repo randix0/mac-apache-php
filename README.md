@@ -60,6 +60,7 @@ cp xdebug/xdebug-extra.ini /usr/local/etc/php/7.0/conf.d/
 chmod +x sendmail/fake_sendmail.sh && cp sendmail/fake_sendmail.sh /usr/local/bin/
 mkdir -p ~/Sites/php.lo/ && touch ~/Sites/php.lo/index.php
 cp php70/php.ini /usr/local/etc/php/7.0/
+cp php70/xdebug.ini /usr/local/etc/php/7.0/conf.d/
 ln -s /usr/local/opt/php\@7.0/bin/php /usr/local/bin/php70
 ln -s /usr/local/opt/php\@7.0/bin/phpize /usr/local/bin/phpize70
 ln -s /usr/local/opt/php\@7.0/bin/pecl /usr/local/bin/pecl70
