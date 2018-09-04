@@ -60,6 +60,10 @@ cp xdebug/xdebug-extra.ini /usr/local/etc/php/7.0/conf.d/
 chmod +x sendmail/fake_sendmail.sh && cp sendmail/fake_sendmail.sh /usr/local/bin/
 mkdir -p ~/Sites/php.lo/ && touch ~/Sites/php.lo/index.php
 cp php70/php.ini /usr/local/etc/php/7.0/
+ln -s /usr/local/opt/php\@7.0/bin/php /usr/local/bin/php70
+ln -s /usr/local/opt/php\@7.0/bin/phpize /usr/local/bin/phpize70
+ln -s /usr/local/opt/php\@7.0/bin/pecl /usr/local/bin/pecl70
+pecl70 install xdebug
 patch -p0 < httpd24/httpd.conf.patch
 cp -r httpd24/extra/ /usr/local/etc/httpd/extra/ && sudo brew services restart httpd
 echo "<?php phpinfo();" > ~/Sites/php.lo/index.php
