@@ -48,16 +48,17 @@ git clone https://github.com/randix0/mac-apache-php.git .
 
 ### 4.1. Set your path in the next files:
 - httpd24/extra/httpd-vhosts.conf
+- sendmail/sendmail.php
 
 ## 5. Deploy configs and load daemons (PHP 5.6 is used for example):
 ```sh
 sudo /usr/sbin/apachectl stop
-mkdir -m 777 ~/Sites/_LOGS/
+mkdir -m 777 ~/Sites/_LOGS/ ~/Sites/_MAILS/
 touch ~/Sites/_LOGS/access_log.log && touch ~/Sites/_LOGS/error_log.log
 mv /usr/local/etc/my.cnf /usr/local/etc/my.cnf.old
 cp mysql56/my.cnf /usr/local/etc/my.cnf && brew services restart mysql@5.6
 cp xdebug/xdebug-extra.ini /usr/local/etc/php/7.0/conf.d/
-chmod +x sendmail/fake_sendmail.sh && cp sendmail/fake_sendmail.sh /usr/local/bin/
+chmod +x sendmail/sendmail.php && cp sendmail/sendmail.php /usr/local/bin/
 mkdir -p ~/Sites/php.lo/ && touch ~/Sites/php.lo/index.php
 cp php70/php.ini /usr/local/etc/php/7.0/
 cp php70/xdebug.ini /usr/local/etc/php/7.0/conf.d/
