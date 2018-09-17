@@ -4,29 +4,28 @@
 ### Tap extra brew repos:
 ```sh
 brew tap homebrew/core
-brew tap homebrew/php
 ```
 
 ## 1. Install git, apache, mysql56 and php-pack:
 ### 1.1. PHP 5.5:
 ```sh
-brew install httpd24 mysql@5.6 memcached redis php55 --with-thread-safety --with-httpd php55-igbinary php55-intl php55-mcrypt php55-apcu php55-memcache php55-memcached php55-oauth php55-xdebug
+brew install httpd24 mysql@5.6 memcached redis php55 --with-thread-safety --with-httpd
 ```
 ### 1.2. PHP 5.6:
 ```sh
-brew install httpd24 mysql@5.6 memcached redis php56 --with-thread-safety --with-httpd php56-igbinary php56-intl php56-mcrypt php56-apcu php56-memcache php56-memcached php56-oauth php56-xdebug
+brew install httpd24 mysql@5.6 memcached redis php56 --with-thread-safety --with-httpd
 ```
 ### 1.3. PHP 7.0:
 ```sh
-brew install httpd24 mysql@5.6 memcached redis php70 --with-thread-safety --with-httpd php70-xdebug
+brew install httpd24 mysql@5.6 memcached redis php70 --with-thread-safety --with-httpd
 ```
 ### 1.4. PHP 7.1:
 ```sh
-brew install httpd24 mysql@5.6 memcached redis php71 --with-thread-safety --with-httpd php71-igbinary php71-intl php71-mcrypt php71-apcu php71-memcache php71-memcached php71-oauth php71-xdebug
+brew install httpd24 mysql@5.6 memcached redis php71 --with-thread-safety --with-httpd
 ```
 ### 1.5. PHP 7.2:
 ```sh
-brew install httpd24 mysql@5.6 memcached redis php72 --with-thread-safety --with-httpd php72-igbinary php72-intl php72-mcrypt php72-apcu php72-memcache php72-memcached php72-oauth php72-xdebug
+brew install httpd24 mysql@5.6 memcached redis php72 --with-thread-safety --with-httpd
 ```
 
 ## 2. Setup MySQL 5.6 server:
