@@ -7,5 +7,5 @@ while (false !== ($line = fgets(STDIN))) {
 }
 
 $mail = preg_replace(['/\=3D/', '/\=0A/', '/\=\s+/'], ['=', ' ', ''], $mail);
-file_put_contents('/Users/ydenyshchenk/Sites/_MAILS/mail.' . time() . '.html', $mail . PHP_EOL, FILE_APPEND);
+file_put_contents('/Users/rand/Sites/_MAILS/mail.' . time() . '.html', $mail . PHP_EOL, FILE_APPEND);
 echo 1;
