@@ -9,12 +9,12 @@ brew tap homebrew/core
 ## 1. Install git, apache, mysql56 and php-pack:
 ### 1.1. PHP 7.2:
 ```sh
-brew install httpd24 memcached redis php@7.2
+brew install httpd24 redis php@7.2
 ```
 
 ### 1.2. PHP 7.3:
 ```sh
-brew install httpd24 memcached redis php@7.3
+brew install httpd24 redis php@7.3
 ```
 
 ### 1.3. PHP 7.4:
@@ -80,7 +80,7 @@ echo "127.0.0.1    php.lo" | sudo tee -a /etc/hosts
 ```sh
 chmod +rx ./bin/web-*
 cp ./bin/web-* /usr/local/bin/
-web-start
+web-restart
 ```
 
 ## 7. Check if web works:
