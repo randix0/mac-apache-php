@@ -1,0 +1,4 @@
+#!/bin/sh
+sudo brew services restart httpd
+brew services restart mariadb@10.4
+brew services restart redis
