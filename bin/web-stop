@@ -1,4 +1,4 @@
 #!/bin/sh
 sudo brew services stop httpd
-brew services stop mariadb@10.4
+brew services stop mysql
 brew services stop redis

@@ -1,4 +1,4 @@
 #!/bin/sh
 sudo brew services start httpd
-brew services start mariadb@10.4
+brew services start mysql
 brew services start redis

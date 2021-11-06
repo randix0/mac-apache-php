@@ -19,7 +19,7 @@ brew install httpd24 redis php@7.3
 
 ### 1.3. PHP 7.4:
 ```sh
-brew install httpd24 memcached redis php@7.4
+brew install httpd24 redis php@7.4
 ```
 
 ## 2. Setup MySQL server:
@@ -59,24 +59,24 @@ git clone https://github.com/randix0/mac-apache-php.git .
 - bin/web-stop
 - bin/web-restart
 
-## 5. Deploy configs (PHP 7.3 is used for example):
+## 5. Deploy configs (PHP 7.4 is used for example):
 ```sh
 sudo /usr/sbin/apachectl stop
 mkdir -m 777 ~/Sites/_LOGS/ ~/Sites/_MAILS/
 touch ~/Sites/_LOGS/access_log.log && touch ~/Sites/_LOGS/error_log.log
-mv /usr/local/etc/my.cnf /usr/local/etc/my.cnf.old
-cp mysql56/my.cnf /usr/local/etc/my.cnf && brew services restart mariadb@10.4
-cp xdebug/xdebug-extra.ini /usr/local/etc/php/7.3/conf.d/
-chmod +x sendmail/sendmail.php && cp sendmail/sendmail.php /usr/local/bin/
-mv /usr/local/etc/php/7.3/php.ini /usr/local/etc/php/7.3/php.ini.old
-ln -s /usr/local/opt/php\@7.3/bin/php /usr/local/bin/php73
-ln -s /usr/local/opt/php\@7.3/bin/phpize /usr/local/bin/phpize73
-ln -s /usr/local/opt/php\@7.3/bin/pecl /usr/local/bin/pecl73
-pecl73 install xdebug
-cp php73/php.ini /usr/local/etc/php/7.3/
-cp php73/xdebug.ini /usr/local/etc/php/7.3/conf.d/
+mv /opt/homebrew/etc/my.cnf /opt/homebrew/etc/my.cnf.old
+cp mysql56/my.cnf /opt/homebrew/etc/my.cnf && brew services restart mysql
+cp xdebug/xdebug-extra.ini /opt/homebrew/etc/php/7.4/conf.d/
+chmod +x sendmail/sendmail.php && cp sendmail/sendmail.php /opt/homebrew/bin/
+mv /opt/homebrew/etc/php/7.4/php.ini /opt/homebrew/etc/php/7.4/php.ini.old
+ln -s /opt/homebrew/opt/php@7.4/bin/php /opt/homebrew/bin/php74
+ln -s /opt/homebrew/opt/php@7.4/bin/phpize /opt/homebrew/bin/phpize74
+ln -s /opt/homebrew/opt/php@7.4/bin/pecl /opt/homebrew/bin/pecl74
+pecl74 install xdebug
+cp php74/php.ini /opt/homebrew/etc/php/7.4/
+cp php74/xdebug.ini /opt/homebrew/etc/php/7.4/conf.d/
 patch -p0 < httpd24/httpd.conf.patch
-cp -r httpd24/extra/ /usr/local/etc/httpd/extra/
+cp -r httpd24/extra/ /opt/homebrew/etc/httpd/extra/
 mkdir -p ~/Sites/php.lo/ && touch ~/Sites/php.lo/index.php
 echo "<?php phpinfo();" > ~/Sites/php.lo/index.php
 echo "127.0.0.1    php.lo" | sudo tee -a /etc/hosts
@@ -85,7 +85,7 @@ echo "127.0.0.1    php.lo" | sudo tee -a /etc/hosts
 ## 6. Deploy start/stop/restart scripts to /usr/local/bin and load daemons (PHP 7.3 is used for example):
 ```sh
 chmod +rx ./bin/web-*
-cp ./bin/web-* /usr/local/bin/
+cp ./bin/web-* /opt/homebrew/bin/
 web-restart
 ```
 
