@@ -30,6 +30,12 @@ mysqld --initialize --user=_mysql
 brew services start mysql@5.6
 mysql_secure_installation
 ```
+### - MySQL 8 server:
+```sh
+brew install mysql
+brew services start mysql
+mysql_secure_installation
+```
 ### - MariaDB 10.4 server:
 ```sh
 brew install mariadb@10.4
