@@ -7,17 +7,24 @@ brew tap homebrew/core
 ```
 
 ## 1. Install git, apache, mysql56 and php-pack:
-### 1.1. PHP 7.2:
+### 1.1. PHP 7.2 (works on Apple Silicone):
 ```sh
 brew install httpd24 redis php@7.2
 ```
 
-### 1.2. PHP 7.3:
+### 1.2. PHP 7.3 (bottle for Apple Silicone does not exist so far):
 ```sh
 brew install httpd24 redis php@7.3
 ```
 
-### 1.3. PHP 7.4:
+### 1.3. PHP 7.3 (for Apple Silicone):
+```sh
+brew install httpd24 redis
+brew tap shivammathur/php
+brew install shivammathur/php/php@7.3
+```
+
+### 1.4. PHP 7.4 (works on Apple Silicone):
 ```sh
 brew install httpd24 redis php@7.4
 ```
@@ -30,12 +37,14 @@ mysqld --initialize --user=_mysql
 brew services start mysql@5.6
 mysql_secure_installation
 ```
-### - MySQL 8 server:
+
+### - MySQL 8 server (for Apple Silicone):
 ```sh
 brew install mysql
 brew services start mysql
 mysql_secure_installation
 ```
+
 ### - MariaDB 10.4 server:
 ```sh
 brew install mariadb@10.4
