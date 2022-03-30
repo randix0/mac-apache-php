@@ -2,3 +2,4 @@
 sudo brew services stop httpd
 brew services stop mysql
 brew services stop redis
+brew services stop elasticsearch@6

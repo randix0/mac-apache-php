@@ -2,3 +2,4 @@
 sudo brew services start httpd
 brew services start mysql
 brew services start redis
+brew services start elasticsearch@6
