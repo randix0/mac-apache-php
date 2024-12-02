@@ -52,23 +52,30 @@ brew services start mariadb@10.4
 mysql-secure-installation
 ```
 
-## 3. Clone these configs using the next commands:
+## 3. Install Opensearch
+```sh
+brew tap isaaceindhoven/opensearch-maintenance
+brew install opensearch@1
+brew install opensearch
+```
+
+## 4. Clone these configs using the next commands:
 ```sh
 mkdir mac-apache-php
 cd mac-apache-php/
 git clone https://github.com/randix0/mac-apache-php.git .
 ```
 
-## 4. Customize configs before deploying:
+## 5. Customize configs before deploying:
 
-### 4.1. Set your path Mysql engine in the next files:
+### 5.1. Set your path Mysql engine in the next files:
 - httpd24/extra/httpd-vhosts.conf
 - sendmail/sendmail.php
 - bin/web-start
 - bin/web-stop
 - bin/web-restart
 
-## 5. Deploy configs (PHP 7.4 is used for example):
+## 6. Deploy configs (PHP 7.4 is used for example):
 ```sh
 sudo /usr/sbin/apachectl stop
 mkdir -m 777 ~/Sites/_LOGS/ ~/Sites/_MAILS/
@@ -91,14 +98,14 @@ echo "<?php phpinfo();" > ~/Sites/php.lo/index.php
 echo "127.0.0.1    php.lo" | sudo tee -a /etc/hosts
 ```
 
-## 6. Deploy start/stop/restart scripts to /usr/local/bin and load daemons (PHP 7.3 is used for example):
+## 7. Deploy start/stop/restart scripts to /usr/local/bin and load daemons (PHP 7.3 is used for example):
 ```sh
 chmod +rx ./bin/web-*
 cp ./bin/web-* /opt/homebrew/bin/
 web-restart
 ```
 
-## 7. Check if web works:
+## 8. Check if web works:
 ```sh
 curl -I http://php.lo/
 ```
