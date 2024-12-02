@@ -109,3 +109,9 @@ web-restart
 ```sh
 curl -I http://php.lo/
 ```
+
+## 9. Install gpatch to fix the issue when composer install stucks on the patch applying step (https://github.com/cweagans/composer-patches/issues/326)
+```sh
+brew install gpatch
+ln -s /opt/homebrew/bin/gpatch /opt/homebrew/bin/patch
+```
